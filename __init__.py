@@ -29,7 +29,7 @@
 
 import bpy
 # Todo : if PySide2 is not instaled open other window with indications
-import Mtools_Popup
+from . import Mtools_Popup
 
 #------------------------------
 # ADD-ON INFO
@@ -78,9 +78,14 @@ def register():
     for cls in CLASSES:
         bpy.utils.register_class(cls)
 
+    Mtools_Popup.register()
+
 def unregister():
+
     for cls in CLASSES:
         bpy.utils.unregister_class(cls)
+
+    Mtools_Popup.unregister()
 
 if __name__ == "__main__":
     register()
